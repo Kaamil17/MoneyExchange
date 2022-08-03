@@ -28,13 +28,8 @@ public class FinalExchangeApplication implements CommandLineRunner {
         com.example.finalexchange.Api.RateApi myApi = new com.example.finalexchange.Api.RateApi();
         Transaction firstTransaction = new Transaction();
 
-//        String sourceCurrency;
-//        String targetCurrency;
-//        double sourceAmount;
-//        double exchangedAmount;
-//        double rate;
-//        UUID transactionId;
 
+        // i could use constructor, but i set the values one by one for checking matters.
         firstTransaction.setSourceCurrency("USD");
         firstTransaction.setTargetCurrency("RUB");
         firstTransaction.setSourceAmount(1000);
