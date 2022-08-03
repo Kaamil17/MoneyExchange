@@ -1,5 +1,6 @@
 package com.example.finalexchange;
 
+import com.example.finalexchange.Extraneous.MyMethods;
 import com.example.finalexchange.Model.Transaction;
 import com.example.finalexchange.Repo.TransactionRepo;
 import org.json.JSONException;
@@ -29,6 +30,7 @@ public class FinalExchangeApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         HashMap<String, String> datas = new HashMap<>();
         com.example.finalexchange.Api.RateApi myApi = new com.example.finalexchange.Api.RateApi();
+        MyMethods myMethods = new MyMethods();
         Transaction transaction = new Transaction();
 
 
@@ -36,16 +38,21 @@ public class FinalExchangeApplication implements CommandLineRunner {
 
         // i could use constructor, but I set the values one by one for checking matters.
         transaction.setSourceCurrency("GBP");
-        transaction.setTargetCurrency("RUB");
+        transaction.setTargetCurrency("TRY");
         transaction.setSourceAmount(1000);
 
         datas = myApi.exchanger(transaction.getSourceCurrency(), transaction.getSourceAmount(),
                 transaction.getTargetCurrency());
 
-        transaction.setTransactionId(UUID.randomUUID());
+        transaction.setTransactionId(myMethods.idGenerator());
         transaction.setRate(Double.parseDouble((datas.get("rate"))));
+
         transaction.setExchangedAmount(Double.parseDouble(datas.get("exchangedAmount")));
         transaction.setLocalDateTime(LocalDateTime.parse(datas.get("dateTime")));
+
+
+
+
 
 
         transactionRepo.save(transaction);

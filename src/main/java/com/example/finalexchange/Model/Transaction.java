@@ -20,11 +20,11 @@ public class Transaction {
     double exchangedAmount;
 
     double rate;
-    UUID transactionId;
+    String transactionId;
     LocalDateTime localDateTime;
 
     public Transaction( double rate, String sourceCurrency, String targetCurrency, double sourceAmount, double exchangedAmount,
-                       UUID transactionId, LocalDateTime localDateTime) {
+                       String transactionId, LocalDateTime localDateTime) {
        // this.id = id;
         this.rate = rate;
         this.sourceCurrency = sourceCurrency;
@@ -90,11 +90,12 @@ public class Transaction {
         this.exchangedAmount = exchangedAmount;
     }
 
-    public UUID getTransactionId() {
+    public String getTransactionId() {
+      //  transactionId = UUID.fromString(UUID.randomUUID().toString().replace("-","").substring(0,8));
         return transactionId;
     }
 
-    public void setTransactionId(UUID transactionId) {
+    public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
     }
 }

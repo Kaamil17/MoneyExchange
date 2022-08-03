@@ -46,6 +46,8 @@ public class RateApi {
         LocalDateTime instance = LocalDateTime.now();
         dataToReturn.put("dateTime" , String.valueOf(instance));
 
+
+
         return dataToReturn;
     }
 
