@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -20,23 +21,32 @@ public class Transaction {
 
     double rate;
     UUID transactionId;
+    LocalDateTime localDateTime;
 
-    public Transaction(int id, double rate, String sourceCurrency, String targetCurrency, double sourceAmount, double exchangedAmount, UUID transactionId) {
-        this.id = id;
+    public Transaction( double rate, String sourceCurrency, String targetCurrency, double sourceAmount, double exchangedAmount,
+                       UUID transactionId, LocalDateTime localDateTime) {
+       // this.id = id;
         this.rate = rate;
         this.sourceCurrency = sourceCurrency;
         this.targetCurrency = targetCurrency;
         this.sourceAmount = sourceAmount;
         this.exchangedAmount = exchangedAmount;
         this.transactionId = transactionId;
+        this.localDateTime = localDateTime;
+
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
+    }
+
+    public void setLocalDateTime(LocalDateTime localDateTime) {
+        this.localDateTime = localDateTime;
     }
 
     public Transaction() {
     }
 
-    public int getId() {
-        return id;
-    }
 
     public double getRate() {
         return rate;
@@ -46,9 +56,7 @@ public class Transaction {
         this.rate = rate;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public String getSourceCurrency() {
         return sourceCurrency;

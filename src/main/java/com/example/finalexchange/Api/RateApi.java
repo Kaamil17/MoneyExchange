@@ -10,13 +10,15 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.HashMap;
 
 @RestController
 public class RateApi {
 
+
     // Here, we find the exchange rate of two currencies.
-    public double rateFinder(String baseCurrency, String targetCurrency) throws JSONException {
+    public HashMap<String, String> exchanger(String baseCurrency, double sourceAmount , String targetCurrency) throws JSONException {
          JSONObject json = null;
         try {
             //  I had some problems with HTTP connection here. So I used a library to get a one liner solution for getting the data from Api in Java.
@@ -33,21 +35,32 @@ public class RateApi {
             myArray[i] = myArray[i].replaceAll("[^\\d.,]+", "");
         }
 
-        return Double.parseDouble(myArray[1]);
-    }
 
+        // we get the rate here
+        HashMap<String, String> dataToReturn = new HashMap<>();
+        dataToReturn.put("rate", myArray[1]);
 
-    public HashMap<String, String> conversionTotalFinder(double sourceAmount, String sourceCurrency, String targetCurrency) throws JSONException {
+        double exchangedAMount = Double.parseDouble(myArray[1] ) * sourceAmount;
+        dataToReturn.put("exchangedAmount", String.valueOf(exchangedAMount));
 
-        HashMap<String,String > toReturn = new HashMap<String, String>();
-        double currencyRate = rateFinder(sourceCurrency, targetCurrency);
-        toReturn.put("Amount" ,String.valueOf(sourceAmount * currencyRate));
-        // getting the date and time
         LocalDateTime instance = LocalDateTime.now();
-        toReturn.put("Date and Time" , " " + instance);
+        dataToReturn.put("dateTime" , String.valueOf(instance));
 
-        return toReturn;
+        return dataToReturn;
     }
+
+
+//    public HashMap<String, String> conversionTotalFinder(double sourceAmount, String sourceCurrency, String targetCurrency) throws JSONException {
+//
+//        HashMap<String,String > toReturn = new HashMap<String, String>();
+//        double currencyRate = rateFinder(sourceCurrency, targetCurrency);
+//        toReturn.put("Amount" ,String.valueOf(sourceAmount * currencyRate));
+//        // getting the date and time
+//        LocalDateTime instance = LocalDateTime.now();
+//        toReturn.put("Date and Time" , String.valueOf(instance));
+//
+//        return toReturn;
+//    }
 
 
 
