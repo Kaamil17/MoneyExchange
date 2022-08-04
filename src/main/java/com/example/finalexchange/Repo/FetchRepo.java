@@ -5,5 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface TransactionRepo extends JpaRepository<Transaction, Integer> {
+public interface FetchRepo extends JpaRepository<Transaction, Integer>{
+
+    @Override
+    List<Transaction> findAll();
+
 }

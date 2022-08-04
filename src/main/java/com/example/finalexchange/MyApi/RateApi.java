@@ -1,16 +1,13 @@
-package com.example.finalexchange.Api;
+package com.example.finalexchange.MyApi;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.HashMap;
 
 @RestController
@@ -27,6 +24,7 @@ public class RateApi {
         } catch (JSONException | IOException e) {
             e.printStackTrace();
         }
+
 
         String rawRate = String.valueOf(json.get("exchange_rates"));
         String[] myArray = rawRate.split(":");
@@ -50,21 +48,5 @@ public class RateApi {
 
         return dataToReturn;
     }
-
-
-//    public HashMap<String, String> conversionTotalFinder(double sourceAmount, String sourceCurrency, String targetCurrency) throws JSONException {
-//
-//        HashMap<String,String > toReturn = new HashMap<String, String>();
-//        double currencyRate = rateFinder(sourceCurrency, targetCurrency);
-//        toReturn.put("Amount" ,String.valueOf(sourceAmount * currencyRate));
-//        // getting the date and time
-//        LocalDateTime instance = LocalDateTime.now();
-//        toReturn.put("Date and Time" , String.valueOf(instance));
-//
-//        return toReturn;
-//    }
-
-
-
 
 }

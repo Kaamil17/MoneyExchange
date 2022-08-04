@@ -11,16 +11,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.UUID;
 
 @SpringBootApplication
-public class FinalExchangeApplication implements CommandLineRunner {
+public class AApplication implements CommandLineRunner {
 
     @Autowired
     TransactionRepo transactionRepo;
 
     public static void main(String[] args) throws JSONException {
-        SpringApplication.run(FinalExchangeApplication.class, args);
+        SpringApplication.run(AApplication.class, args);
 
       //  com.example.finalexchange.Api.RateApi myApi = new com.example.finalexchange.Api.RateApi();
 
@@ -29,17 +28,15 @@ public class FinalExchangeApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         HashMap<String, String> datas = new HashMap<>();
-        com.example.finalexchange.Api.RateApi myApi = new com.example.finalexchange.Api.RateApi();
+        com.example.finalexchange.MyApi.RateApi myApi = new com.example.finalexchange.MyApi.RateApi();
         MyMethods myMethods = new MyMethods();
         Transaction transaction = new Transaction();
-
-
 
 
         // i could use constructor, but I set the values one by one for checking matters.
         transaction.setSourceCurrency("GBP");
         transaction.setTargetCurrency("TRY");
-        transaction.setSourceAmount(1000);
+        transaction.setSourceAmount(500);
 
         datas = myApi.exchanger(transaction.getSourceCurrency(), transaction.getSourceAmount(),
                 transaction.getTargetCurrency());
@@ -51,10 +48,7 @@ public class FinalExchangeApplication implements CommandLineRunner {
         transaction.setLocalDateTime(LocalDateTime.parse(datas.get("dateTime")));
 
 
-
-
-
-
         transactionRepo.save(transaction);
+
     }
 }
