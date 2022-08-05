@@ -1,6 +1,8 @@
 package com.example.finalexchange.Model;
 
 
+import com.example.finalexchange.Extraneous.MyMethods;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,9 +25,9 @@ public class Transaction {
     String transactionId;
     LocalDateTime localDateTime;
 
-    public Transaction( double rate, String sourceCurrency, String targetCurrency, double sourceAmount, double exchangedAmount,
+    public Transaction( int id, double rate, String sourceCurrency, String targetCurrency, double sourceAmount, double exchangedAmount,
                        String transactionId, LocalDateTime localDateTime) {
-       // this.id = id;
+        this.id = id;
         this.rate = rate;
         this.sourceCurrency = sourceCurrency;
         this.targetCurrency = targetCurrency;
@@ -34,6 +36,10 @@ public class Transaction {
         this.transactionId = transactionId;
         this.localDateTime = localDateTime;
 
+    }
+
+    public int getId() {
+        return id;
     }
 
     public LocalDateTime getLocalDateTime() {
@@ -96,6 +102,9 @@ public class Transaction {
     }
 
     public void setTransactionId(String transactionId) {
+
+        MyMethods myMethods = new MyMethods();
+        transactionId = myMethods.idGenerator();
         this.transactionId = transactionId;
     }
 }

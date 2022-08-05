@@ -14,7 +14,8 @@ import java.util.HashMap;
 public class RateApi {
 
 
-    // Here, we find the exchange rate of two currencies.
+    //  This functions covers the first two major tasks of the projects,which are getting the rate of currency and
+    //  converting currencies.
     public HashMap<String, String> exchanger(String baseCurrency, double sourceAmount , String targetCurrency) throws JSONException {
          JSONObject json = null;
         try {

@@ -21,8 +21,6 @@ public class AApplication implements CommandLineRunner {
     public static void main(String[] args) throws JSONException {
         SpringApplication.run(AApplication.class, args);
 
-      //  com.example.finalexchange.Api.RateApi myApi = new com.example.finalexchange.Api.RateApi();
-
     }
 
     @Override
@@ -34,8 +32,8 @@ public class AApplication implements CommandLineRunner {
 
 
         // i could use constructor, but I set the values one by one for checking matters.
-        transaction.setSourceCurrency("GBP");
-        transaction.setTargetCurrency("TRY");
+        transaction.setSourceCurrency("USD");
+        transaction.setTargetCurrency("JPY");
         transaction.setSourceAmount(500);
 
         datas = myApi.exchanger(transaction.getSourceCurrency(), transaction.getSourceAmount(),
@@ -46,7 +44,6 @@ public class AApplication implements CommandLineRunner {
 
         transaction.setExchangedAmount(Double.parseDouble(datas.get("exchangedAmount")));
         transaction.setLocalDateTime(LocalDateTime.parse(datas.get("dateTime")));
-
 
         transactionRepo.save(transaction);
 
