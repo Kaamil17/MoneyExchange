@@ -16,13 +16,13 @@ public class Controller {
     @Autowired
     FetchRepo fetchRepo;
 
-    // this functions gives the all datas at once.
+    // this functions gives the all data at once. checked by postman. works fine!
   @GetMapping(path = "/transactions")
     public List<Transaction> getTransactionsData() {
         return fetchRepo.findAll();
     }
 
-    // this functions gives the datas according to the id of the transaction.
+    // this functions gives the data according to the id of the transaction. i checked it using postman.
     @GetMapping(path = "/transaction/{id}")
     public Optional<Transaction> getTransactionsDataById(@PathVariable int id) {
         return fetchRepo.findById(id);
