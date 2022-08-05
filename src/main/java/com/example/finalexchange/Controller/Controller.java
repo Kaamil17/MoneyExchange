@@ -16,7 +16,6 @@ public class Controller {
 
   @GetMapping(path = "/transactions")
     public List<Transaction> getTransactionsData() {
-        System.out.println(fetchRepo.findAll());
         return fetchRepo.findAll();
 
     }
