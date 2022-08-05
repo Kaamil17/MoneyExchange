@@ -13,6 +13,7 @@ import java.util.Optional;
 @RestController
 public class Controller {
 
+    // dependency injection is happening here. Something i learned just now.
     @Autowired
     FetchRepo fetchRepo;
 

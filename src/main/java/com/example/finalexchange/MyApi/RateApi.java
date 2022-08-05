@@ -34,7 +34,6 @@ public class RateApi {
             myArray[i] = myArray[i].replaceAll("[^\\d.,]+", "");
         }
 
-
         // we get the rate here
         HashMap<String, String> dataToReturn = new HashMap<>();
         dataToReturn.put("rate", myArray[1]);

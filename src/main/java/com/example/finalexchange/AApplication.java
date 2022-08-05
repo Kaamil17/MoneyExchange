@@ -32,6 +32,7 @@ public class AApplication implements CommandLineRunner {
 
 
         // i could use constructor, but I set the values one by one for checking matters.
+        // you can write your own currency abbreviations here.
         transaction.setSourceCurrency("USD");
         transaction.setTargetCurrency("JPY");
         transaction.setSourceAmount(500);
