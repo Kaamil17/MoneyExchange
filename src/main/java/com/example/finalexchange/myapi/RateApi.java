@@ -1,4 +1,4 @@
-package com.example.finalexchange.MyApi;
+package com.example.finalexchange.myapi;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,9 +21,10 @@ public class RateApi {
         try {
             //  I had some problems with HTTP connection here. So I used a library to get a one liner solution for getting the data from Api in Java.
             json = new JSONObject(org.apache.commons.io.IOUtils.toString(new URL("https://exchange-rates.abstractapi.com/v1/live/?api_key=c0b96d1c04464cef91c2304909193f55&base=" + baseCurrency + "&target=" + targetCurrency), StandardCharsets.UTF_8));
-
+            // use cloud
         } catch (JSONException | IOException e) {
             e.printStackTrace();
+            // throw exa
         }
 
 

@@ -1,6 +1,7 @@
-package com.example.finalexchange.Controller;
-import com.example.finalexchange.Model.Transaction;
-import com.example.finalexchange.Repo.FetchRepo;
+package com.example.finalexchange.controller;
+
+import com.example.finalexchange.model.Transaction;
+import com.example.finalexchange.repo.FetchRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,11 +15,14 @@ import java.util.Optional;
 public class Controller {
 
     // dependency injection is happening here. Something i learned just now.
+      //TODO:  USE CONSTRUCTOR INJECTION INSTEAD
     @Autowired
-    FetchRepo fetchRepo;
+    private FetchRepo fetchRepo;
+
+
 
     // this functions gives the all data at once. checked by postman. works fine!
-  @GetMapping(path = "/transactions")
+    @GetMapping(path = "/transactions")
     public List<Transaction> getTransactionsData() {
         return fetchRepo.findAll();
     }

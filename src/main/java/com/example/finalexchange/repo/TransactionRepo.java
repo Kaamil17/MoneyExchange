@@ -1,9 +1,8 @@
-package com.example.finalexchange.Repo;
+package com.example.finalexchange.repo;
 
-import com.example.finalexchange.Model.Transaction;
+import com.example.finalexchange.model.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
 
 public interface TransactionRepo extends JpaRepository<Transaction, Integer> {
 }

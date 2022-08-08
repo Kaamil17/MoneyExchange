@@ -1,8 +1,8 @@
 package com.example.finalexchange;
 
-import com.example.finalexchange.Extraneous.MyMethods;
-import com.example.finalexchange.Model.Transaction;
-import com.example.finalexchange.Repo.TransactionRepo;
+import com.example.finalexchange.extraneous.MyMethods;
+import com.example.finalexchange.model.Transaction;
+import com.example.finalexchange.repo.TransactionRepo;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,21 +12,27 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
+// TODO: CHANGE FIRST LETTER OF PACKAGE NAMES
+// TODO: USE LOMBOK INSTEAD OF SET/GET/CONSTRUCTOR
+// TODO: READ THE FILES
+// TODO: CHANGE THE HARD CODED API URL AND USE CLOUD FEIGN INSTEAD
+
+
 @SpringBootApplication
 public class AApplication implements CommandLineRunner {
 
     @Autowired
     TransactionRepo transactionRepo;
 
-    public static void main(String[] args) throws JSONException {
+    public static void main(String[] args) {
         SpringApplication.run(AApplication.class, args);
 
     }
 
     @Override
     public void run(String... args) throws Exception {
-        HashMap<String, String> datas = new HashMap<>();
-        com.example.finalexchange.MyApi.RateApi myApi = new com.example.finalexchange.MyApi.RateApi();
+        HashMap<String, String> datas;
+        com.example.finalexchange.myapi.RateApi myApi = new com.example.finalexchange.myapi.RateApi();
         MyMethods myMethods = new MyMethods();
         Transaction transaction = new Transaction();
 
