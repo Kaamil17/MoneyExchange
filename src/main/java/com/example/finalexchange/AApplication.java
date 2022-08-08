@@ -11,11 +11,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-
-// TODO: CHANGE FIRST LETTER OF PACKAGE NAMES
-// TODO: USE LOMBOK INSTEAD OF SET/GET/CONSTRUCTOR
-// TODO: READ THE FILES
-// TODO: CHANGE THE HARD CODED API URL AND USE CLOUD FEIGN INSTEAD
+/*
+ TODO: CHANGE FIRST LETTER OF PACKAGE NAMES -> DONE!
+ TODO: USE LOMBOK INSTEAD OF SET/GET/CONSTRUCTOR -> DONE!
+ TODO: READ THE FILES
+ TODO: CHANGE THE HARD CODED API URL AND USE CLOUD FEIGN INSTEAD
+ TODO: THROW THE RIGHT EXCEPTION INSTEAD OF PRINTSTPACE.
+*/
 
 
 @SpringBootApplication
@@ -31,6 +33,7 @@ public class AApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
         HashMap<String, String> datas;
         com.example.finalexchange.myapi.RateApi myApi = new com.example.finalexchange.myapi.RateApi();
         MyMethods myMethods = new MyMethods();
