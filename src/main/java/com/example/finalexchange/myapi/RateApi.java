@@ -23,7 +23,7 @@ public class RateApi {
             json = new JSONObject(org.apache.commons.io.IOUtils.toString(new URL("https://exchange-rates.abstractapi.com/v1/live/?api_key=c0b96d1c04464cef91c2304909193f55&base=" + baseCurrency + "&target=" + targetCurrency), StandardCharsets.UTF_8));
             // use cloud
         } catch (JSONException | IOException e) {
-            System.out.println("Api is not responding");
+            System.out.println("Please check if the currency abbreviation is correct");
             System.exit(1);
         }
 

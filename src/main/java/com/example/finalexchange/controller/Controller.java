@@ -15,11 +15,12 @@ import java.util.Optional;
 public class Controller {
 
     // dependency injection is happening here. Something i learned just now.
-      //TODO:  USE CONSTRUCTOR INJECTION INSTEAD
-    @Autowired
-    private FetchRepo fetchRepo;
+    //TODO:  USE CONSTRUCTOR INJECTION INSTEAD -> DONE!
+    private final FetchRepo fetchRepo;
 
-
+    public Controller(FetchRepo fetchRepo) {
+        this.fetchRepo = fetchRepo;
+    }
 
     // this functions gives the all data at once. checked by postman. works fine!
     @GetMapping(path = "/transactions")

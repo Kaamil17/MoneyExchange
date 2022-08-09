@@ -16,15 +16,18 @@ import java.util.HashMap;
  TODO: USE LOMBOK INSTEAD OF SET/GET/CONSTRUCTOR -> DONE!
  TODO: READ THE FILES
  TODO: CHANGE THE HARD CODED API URL AND USE CLOUD FEIGN INSTEAD
- TODO: THROW THE RIGHT EXCEPTION INSTEAD OF PRINTSTPACE.
+ TODO: THROW THE RIGHT EXCEPTION INSTEAD OF PRINTSTPACE.-> DONE
 */
 
 
 @SpringBootApplication
 public class AApplication implements CommandLineRunner {
 
-    @Autowired
-    TransactionRepo transactionRepo;
+    final TransactionRepo transactionRepo;
+
+    public AApplication(TransactionRepo transactionRepo) {
+        this.transactionRepo = transactionRepo;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(AApplication.class, args);
@@ -43,8 +46,8 @@ public class AApplication implements CommandLineRunner {
         // i could use constructor, but I set the values one by one for checking matters.
         // you can write your own currency abbreviations here.
         transaction.setSourceCurrency("USD");
-        transaction.setTargetCurrency("JPY");
-        transaction.setSourceAmount(500);
+        transaction.setTargetCurrency("TRY");
+        transaction.setSourceAmount(750);
 
         datas = myApi.exchanger(transaction.getSourceCurrency(), transaction.getSourceAmount(),
                 transaction.getTargetCurrency());
@@ -56,6 +59,5 @@ public class AApplication implements CommandLineRunner {
         transaction.setLocalDateTime(LocalDateTime.parse(datas.get("dateTime")));
 
         transactionRepo.save(transaction);
-
     }
 }
