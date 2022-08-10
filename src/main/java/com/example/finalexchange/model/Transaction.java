@@ -1,7 +1,5 @@
 package com.example.finalexchange.model;
 
-
-import com.example.finalexchange.extraneous.MyMethods;
 import lombok.Data;
 
 import javax.persistence.Entity;

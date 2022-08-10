@@ -47,7 +47,7 @@ public class AApplication implements CommandLineRunner {
         // you can write your own currency abbreviations here.
         transaction.setSourceCurrency("USD");
         transaction.setTargetCurrency("TRY");
-        transaction.setSourceAmount(750);
+        transaction.setSourceAmount(100);
 
         datas = myApi.exchanger(transaction.getSourceCurrency(), transaction.getSourceAmount(),
                 transaction.getTargetCurrency());
