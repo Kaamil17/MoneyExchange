@@ -3,8 +3,6 @@ package com.example.finalexchange;
 import com.example.finalexchange.extraneous.MyMethods;
 import com.example.finalexchange.model.Transaction;
 import com.example.finalexchange.repo.TransactionRepo;
-import org.json.JSONException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +12,7 @@ import java.util.HashMap;
 /*
  TODO: CHANGE FIRST LETTER OF PACKAGE NAMES -> DONE!
  TODO: USE LOMBOK INSTEAD OF SET/GET/CONSTRUCTOR -> DONE!
- TODO: READ THE FILES
+ TODO: READ THE FILES -> 50% DONE!
  TODO: CHANGE THE HARD CODED API URL AND USE CLOUD FEIGN INSTEAD
  TODO: THROW THE RIGHT EXCEPTION INSTEAD OF PRINTSTPACE.-> DONE
 */
