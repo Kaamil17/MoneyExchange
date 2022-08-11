@@ -1,19 +1,17 @@
-package com.example.finalexchange.extraneous;
-
+package com.example.finalexchange.service;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Random;
 
-public class MyMethods {
+@Service("api-service")
+public class ApiService {
 
-    // i tried this method for generating a random string for a transaction id other than a single integer
-    // which is given by the mysql and hibernate automatically, but i get "BLUB" in my mysql database table instead of
-    // the generated string.
     public String idGenerator() {
         byte[] array = new byte[7]; // length is bounded by 7
         new Random().nextBytes(array);
@@ -44,7 +42,6 @@ public class MyMethods {
 
         return dataToReturn;
     }
-
 
 
 

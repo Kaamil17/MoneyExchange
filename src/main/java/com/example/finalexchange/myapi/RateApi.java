@@ -1,11 +1,11 @@
 package com.example.finalexchange.myapi;
 
-import com.example.finalexchange.extraneous.MyMethods;
+import com.example.finalexchange.service.ApiService;
 import lombok.SneakyThrows;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.finalexchange.service.apiService;
+import com.example.finalexchange.service.apiServiceInterface;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 
 @RestController
-public class RateApi implements apiService {
+public class RateApi implements apiServiceInterface {
 
 
     //  This functions covers the first two major tasks of the projects,which are getting the rate of currency and
@@ -31,11 +31,11 @@ public class RateApi implements apiService {
             System.exit(1);
         }
 
-        MyMethods myMethods = new MyMethods();
+        ApiService apiService = new ApiService();
         String rate;
 
         // instead of hardcoding, I implemented two functions and called them here.
-        rate = myMethods.apiParser(json);
-        return myMethods.writeData(rate, sourceAmount);
+        rate = apiService.apiParser(json);
+        return apiService.writeData(rate, sourceAmount);
     }
 }

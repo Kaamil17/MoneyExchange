@@ -1,8 +1,7 @@
 package com.example.finalexchange;
-
-import com.example.finalexchange.extraneous.MyMethods;
 import com.example.finalexchange.model.Transaction;
 import com.example.finalexchange.repo.TransactionRepo;
+import com.example.finalexchange.service.ApiService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -37,7 +36,7 @@ public class AApplication implements CommandLineRunner {
 
         HashMap<String, String> datas;
         com.example.finalexchange.myapi.RateApi myApi = new com.example.finalexchange.myapi.RateApi();
-        MyMethods myMethods = new MyMethods();
+        ApiService apiService = new ApiService();
         Transaction transaction = new Transaction();
 
 
@@ -50,7 +49,7 @@ public class AApplication implements CommandLineRunner {
         datas = myApi.exchanger(transaction.getSourceCurrency(), transaction.getSourceAmount(),
                 transaction.getTargetCurrency());
 
-        transaction.setTransactionId(myMethods.idGenerator());
+        transaction.setTransactionId(apiService.idGenerator());
         transaction.setRate(Double.parseDouble((datas.get("rate"))));
 
         transaction.setExchangedAmount(Double.parseDouble(datas.get("exchangedAmount")));
