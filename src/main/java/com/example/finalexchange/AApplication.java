@@ -5,18 +5,12 @@ import com.example.finalexchange.service.ApiService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-/*
- TODO: CHANGE FIRST LETTER OF PACKAGE NAMES -> DONE!
- TODO: USE LOMBOK INSTEAD OF SET/GET/CONSTRUCTOR -> DONE!
- TODO: READ THE FILES -> 50% DONE!
- TODO: CHANGE THE HARD CODED API URL AND USE CLOUD FEIGN INSTEAD
- TODO: THROW THE RIGHT EXCEPTION INSTEAD OF PRINTSTPACE.-> DONE
-*/
 
-
+@EnableFeignClients
 @SpringBootApplication
 public class AApplication implements CommandLineRunner {
 
@@ -42,7 +36,7 @@ public class AApplication implements CommandLineRunner {
 
         // i could use constructor, but I set the values one by one for checking matters.
         // you can write your own currency abbreviations here.
-        transaction.setSourceCurrency("USD");
+        transaction.setSourceCurrency("");
         transaction.setTargetCurrency("TRY");
         transaction.setSourceAmount(10);
 

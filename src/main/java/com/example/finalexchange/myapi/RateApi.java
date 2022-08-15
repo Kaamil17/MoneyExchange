@@ -2,6 +2,7 @@ package com.example.finalexchange.myapi;
 
 import com.example.finalexchange.service.ApiService;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,14 +11,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.List;
 
 
 @RestController
+@Slf4j
 public class RateApi implements apiServiceInterface {
 
 
     //  This functions covers the first two major tasks of the projects,which are getting the rate of currency and
     //  converting currencies.
+
+
 
     @SneakyThrows
     public HashMap<String, String> exchanger(String baseCurrency, double sourceAmount, String targetCurrency) {
@@ -27,7 +32,7 @@ public class RateApi implements apiServiceInterface {
             json = new JSONObject(org.apache.commons.io.IOUtils.toString(new URL("https://exchange-rates.abstractapi.com/v1/live/?api_key=c0b96d1c04464cef91c2304909193f55&base=" + baseCurrency + "&target=" + targetCurrency), StandardCharsets.UTF_8));
             // use cloud
         } catch (JSONException | IOException e) {
-            System.out.println("Please check if the currency abbreviation is correct");
+            log.error("Please check if the currency abbreviation is correct");
             System.exit(1);
         }
 
