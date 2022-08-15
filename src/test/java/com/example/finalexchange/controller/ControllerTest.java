@@ -22,13 +22,20 @@ class ControllerTest {
     FetchRepo fetchRepo;
 
     @Test
-    void getTestTransactionsDataById() {
+    void getTransactionsDataByIdTest() {
         Controller controller = new Controller(fetchRepo);
         Optional<Transaction> response = controller.getTransactionsDataById(40);
         assertEquals(
                 "USD", response.get().getSourceCurrency());
         assertEquals(
                 "717.9382499999999", String.valueOf(response.get().getExchangedAmount()));
-
+        assertEquals(
+                "0.957251", String.valueOf(response.get().getRate()));
+        assertEquals(
+                "CHF", String.valueOf(response.get().getTargetCurrency()));
+        assertEquals(
+                "750.0", String.valueOf(response.get().getSourceAmount()));
+        assertEquals(
+                "2022-08-09T12:12:28.338136", String.valueOf(response.get().getLocalDateTime()));
     }
 }
