@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.List;
 
 
 @RestController
@@ -21,8 +20,6 @@ public class RateApi implements apiServiceInterface {
 
     //  This functions covers the first two major tasks of the projects,which are getting the rate of currency and
     //  converting currencies.
-
-
 
     @SneakyThrows
     public HashMap<String, String> exchanger(String baseCurrency, double sourceAmount, String targetCurrency) {

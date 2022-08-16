@@ -1,7 +1,7 @@
-package com.example.finalexchange.controller;
+package com.example.finalexchange.rest_controller;
 
 import com.example.finalexchange.model.Transaction;
-import com.example.finalexchange.repo.FetchRepo;
+import com.example.finalexchange.persistence.FetchRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

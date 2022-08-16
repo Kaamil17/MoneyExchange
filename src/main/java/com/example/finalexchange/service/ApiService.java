@@ -1,5 +1,6 @@
 package com.example.finalexchange.service;
 
+import lombok.RequiredArgsConstructor;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 @Service("api-service")
+@RequiredArgsConstructor
 public class ApiService {
 
     public String idGenerator() {

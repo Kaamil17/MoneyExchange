@@ -1,6 +1,7 @@
 package com.example.finalexchange;
+
 import com.example.finalexchange.model.Transaction;
-import com.example.finalexchange.repo.TransactionRepo;
+import com.example.finalexchange.persistence.TransactionRepo;
 import com.example.finalexchange.service.ApiService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
-@EnableFeignClients
+
 @SpringBootApplication
 public class AApplication implements CommandLineRunner {
 
@@ -26,7 +27,7 @@ public class AApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         HashMap<String, String> datas;
         com.example.finalexchange.myapi.RateApi myApi = new com.example.finalexchange.myapi.RateApi();
@@ -36,7 +37,7 @@ public class AApplication implements CommandLineRunner {
 
         // i could use constructor, but I set the values one by one for checking matters.
         // you can write your own currency abbreviations here.
-        transaction.setSourceCurrency("");
+        transaction.setSourceCurrency("EUR");
         transaction.setTargetCurrency("TRY");
         transaction.setSourceAmount(10);
 

@@ -1,6 +1,7 @@
 package com.example.finalexchange.model;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 
 //
 @Entity
+@RequiredArgsConstructor
 public @Data class Transaction {
 
     @Id
