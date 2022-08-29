@@ -1,4 +1,4 @@
-package com.example.finalexchange.model;
+package com.example.finalexchange.data.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -9,20 +9,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-//
 @Entity
 @RequiredArgsConstructor
 public @Data class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
-    String sourceCurrency;
-    String targetCurrency;
-    double sourceAmount;
-    double exchangedAmount;
+    private int id;
+    private String sourceCurrency;
+    private String targetCurrency;
+    private double sourceAmount;
+    private double exchangedAmount;
 
-    double rate;
-    String transactionId;
-    LocalDateTime localDateTime;
+    private double rate;
+    private String transactionId;
+    private LocalDateTime localDateTime;
 }
