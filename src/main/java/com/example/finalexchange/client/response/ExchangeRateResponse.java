@@ -7,10 +7,6 @@ import lombok.Data;
 public class ExchangeRateResponse {
     private String base;
 
-    @JsonProperty("last_updated")
-    private String lastUpdated;
-
     @JsonProperty("exchange_rates")
     private Object exchangeRate;
-
 }

@@ -1,8 +1,6 @@
 package com.example.finalexchange.data.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,4 +23,7 @@ public class Transaction {
     private double rate;
     private String transactionId;
     private LocalDateTime localDateTime;
+
+
+
 }

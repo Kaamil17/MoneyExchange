@@ -2,6 +2,7 @@ package com.example.finalexchange.mapper;
 
 import com.example.finalexchange.controller.response.TransactionResponse;
 import com.example.finalexchange.data.model.Transaction;
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface ExchangeRateMapper {
 
     List<TransactionResponse> transactionToTransactionResponses(List<Transaction> transaction);
 
-//    @InheritInverseConfiguration
-//    TransactionResponse dtoToModel(TransactionResponse transactionResponse);
+    @InheritInverseConfiguration
+   Transaction dtoToModel(TransactionResponse transactionResponse);
 
 }

@@ -2,18 +2,15 @@ package com.example.finalexchange.controller;
 
 import com.example.finalexchange.client.response.ExchangeRateResponse;
 import com.example.finalexchange.controller.response.TransactionResponse;
+import com.example.finalexchange.data.model.Transaction;
 import com.example.finalexchange.mapper.ExchangeRateMapper;
 import com.example.finalexchange.service.RateApiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//https://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -37,5 +34,13 @@ class RateApiController {
         ExchangeRateResponse exchangeRateResponse = rateApiService.getExchangeRates(base, target);
         log.info("Response: {}", exchangeRateResponse);
         return exchangeRateResponse;
+    }
+
+
+    @PostMapping()
+    public void save( @RequestBody TransactionResponse transactionResponse) {
+        log.info("Saving: {}", transactionResponse);
+        Transaction transaction = exchangeRateMapper.dtoToModel(transactionResponse);
+        rateApiService.save(transaction);
     }
 }
