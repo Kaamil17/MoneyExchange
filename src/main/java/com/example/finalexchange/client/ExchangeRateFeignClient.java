@@ -12,4 +12,6 @@ public interface ExchangeRateFeignClient {
     ExchangeRateResponse getExchangeRates(@RequestParam String base,
                                           @RequestParam String target);
 
+
+
 }

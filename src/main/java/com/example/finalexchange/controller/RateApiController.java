@@ -37,8 +37,8 @@ class RateApiController {
     }
 
 
-    @PostMapping()
-    public void save( @RequestBody TransactionResponse transactionResponse) {
+
+    public void save(TransactionResponse transactionResponse) {
         log.info("Saving: {}", transactionResponse);
         Transaction transaction = exchangeRateMapper.dtoToModel(transactionResponse);
         rateApiService.save(transaction);
